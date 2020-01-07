@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs"); //专门用来读取文件的模块
 
 fs.readFile("./data/name.json", (err, data) => {
   if (!err) {
