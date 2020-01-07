@@ -1,8 +1,17 @@
-const http = require("http"); //系统内置的模块，如果使用第三方模块，需要用npm或yarn安装
-
+const http = require("http");
+const fs = require("fs");
 let server = http.createServer((request, response) => {
-  response.write("hello world!");
-  response.end(); //没有这行代码，浏览器那个tab的logo会一直转。总之，咩有这行代码的话，那么浏览器就会傻傻地在等待，认为请求仍在处理中
+  // 处理静态资源
+  let url = request.url;
+  fs.readFile(`index${url}`, (err, buffer) => {
+    if (err) {
+      response.write("this page is not found");
+      response.end();
+    } else {
+      response.write(buffer);
+      response.end();
+    }
+  });
 });
 
 server.listen(3000);
