@@ -1,0 +1,11 @@
+{
+  "name": "wy-5day-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ppambler/wy-5day-nodejs.git",
+  "author": "ppambler <allinlbj@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
