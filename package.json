@@ -7,5 +7,9 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0"
   }
 }
