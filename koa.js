@@ -1,5 +1,6 @@
 const Koa = require("koa");
 const Router = require("koa-router");
+const axios = require("axios");
 
 // 建立实例
 const app = new Koa();
@@ -12,19 +13,19 @@ router.get("/user", ctx => {
   ctx.body = "用户首页";
 });
 
-app.use((ctx, next) => {
-  console.log(1);
-  next().then(res => {
-    console.log(res);
-  });
-  console.log(2);
-});
+app.use(async (ctx, next) => {
+  // 求值
+  let a = (await 1000) + 1000;
+  console.log(a);
 
-app.use((ctx, next) => {
-  console.log(3);
-  next();
-  console.log(4);
-  return "我是你要的数据";
+  // 阻塞线程
+  console.time("time1");
+  let b = axios.get("http://taobao.com");
+  console.timeEnd("time1"); //time1 -> 2.684ms
+
+  console.time("time2");
+  let c = await axios.get("http://taobao.com");
+  console.timeEnd("time2"); // time2 -> 791.079ms
 });
 
 // 定义了路由，就要使用它

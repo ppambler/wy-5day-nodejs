@@ -9,6 +9,7 @@
     "jquery": "^3.4.1"
   },
   "devDependencies": {
+    "axios": "^0.19.1",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0"
   }
