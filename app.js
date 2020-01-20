@@ -30,6 +30,7 @@ router.get("/data", async ctx => {
 });
 
 router.use("/admin", require("./router/admin"));
+router.use("/api", require("./api/user"));
 app.use(static(path.resolve(__dirname, "./public")));
 app.use(router.routes());
 app.listen(3000);

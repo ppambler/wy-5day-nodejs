@@ -10,5 +10,4 @@ const db = mysql.createPool({
   database: config.DB_NAME
 });
 
-console.log(3, db);
 module.exports = co(db);
